@@ -34,8 +34,8 @@ const ArtistSearch = ({
         <Fragment>
             <FormGroup>
                 <Row>
-                    <Col>
-                        <Label>Search</Label>
+                    <Col style={{textAlign:"center"}}>
+                        <Label style={{color:"black"}}>Search</Label>
                     </Col>
                     <Col>
                         <Input

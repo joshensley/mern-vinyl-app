@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
-import AlertComponent from '../layout/AlertComponent';
+// import AlertComponent from '../layout/AlertComponent';
 import { connect } from 'react-redux';
 
 import { getArtists, addAlbum } from '../../actions/vinylCollection';
@@ -76,7 +76,7 @@ const AlbumModal = ({
             <Button color="info" onClick={toggle}>Add Album</Button>
             <Modal isOpen={modal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>Add Album</ModalHeader>
-                <AlertComponent />
+                {/* <AlertComponent /> */}
                 <ModalBody>
                     <form onSubmit={onSubmit}> 
 

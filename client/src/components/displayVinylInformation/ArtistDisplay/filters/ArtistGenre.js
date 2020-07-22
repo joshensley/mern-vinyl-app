@@ -34,8 +34,8 @@ const ArtistGenre = ({
         <Fragment>
             <FormGroup>
                 <Row>
-                    <Col>
-                        <Label>Genre</Label>
+                    <Col style={{textAlign:"center"}}>
+                        <Label style={{color:"black"}}>Genre</Label>
                     </Col>
                     <Col>
                     <Input 

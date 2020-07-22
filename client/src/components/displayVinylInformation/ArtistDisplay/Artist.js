@@ -1,5 +1,4 @@
 import React, { useEffect, Fragment } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { 
@@ -22,8 +21,10 @@ import {
     Container,
     Jumbotron,
     Spinner,
-    Breadcrumb,
-    BreadcrumbItem
+    Card,
+    CardBody,
+    CardImg,
+    CardTitle
 } from 'reactstrap';
 
 const Artist = ({
@@ -123,54 +124,48 @@ const Artist = ({
     }
 
     return (
+        <div>
+        <Container className="mt-3">
+            <br/>
+
+            {
+                !loading ? 
+                <Card body inverse style={{ backgroundColor: '#343a40', borderColor: '#343a40' }}>
+                    <br />
+                    <div style={{textAlign:"center"}}>
+                        <CardImg 
+                            top
+                            src={photoUrl}
+                            style={{
+                                height: "100px",
+                                width: "100px",
+                                borderRadius: "50%",
+                                objectFit: "cover",
+                                margin: "0",
+                                display: "inline-block"
+                            }}
+                        />
+                    </div>
+
+                    <CardBody>
+                        <CardTitle style={{textAlign:"center", fontSize:"30px"}}>{userName}</CardTitle>
+                    </CardBody>
+
+                    <ArtistFilter />
+
+                </Card> : <div style={{textAlign:"center"}}><Spinner /></div>
+            }     
+        </Container>
+
         <Container className="mt-3">
             <Jumbotron>
                 {
                     !loading && artist !== null ? 
                     <Fragment>
 
-                    
-                        <Row>
-                            <Col> 
-                                <Breadcrumb>
-                                    <BreadcrumbItem>
-                                        <Link to={{ pathname: `/users` }}>Users</Link>
-                                    </BreadcrumbItem>
-                                    <BreadcrumbItem>
-                                        Artists
-                                    </BreadcrumbItem>
-                                </Breadcrumb>
-                            </Col>
-                            <Col style={{textAlign:"center"}}>
-                                <div style={{fontSize:"50px", display:"inline"}}>
-                                    <img 
-                                        src={photoUrl}
-                                        alt="Avatar"
-                                        style={{
-                                            height: "100px",
-                                            width: "100px",
-                                            borderRadius: "50%",
-                                            objectFit: "cover",
-                                            margin: "0",
-                                            display: "inline-block"
-                                        }}
-                                    />{' '}
-                                    <h1 style={{
-                                        margin: "0",
-                                        display: "inline-block"
-                                    }}>
-                                        {userName} 
-                                    </h1>
-                                </div>
-                            </Col>
-                            <Col>
-                            </Col>
-                        </Row>
-
-                        
-                        <div className="mt-3">
+                        {/* <div className="mt-1">
                             <ArtistFilter />
-                        </div>
+                        </div> */}
                     
                         <ArtistPagination  artistFilter={artist} />
                         <Row>
@@ -188,13 +183,14 @@ const Artist = ({
                                 }) : <Spinner />
                             }
                         </Row>
-                    <ArtistPagination artistFilter={artist} />
+                        <ArtistPagination artistFilter={artist} />
                     </Fragment> : <div style={{textAlign:"center"}}><Spinner /></div>
                 }
 
                 
             </Jumbotron>
         </Container>
+        </div>
     )
 }
 

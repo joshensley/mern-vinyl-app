@@ -6,6 +6,7 @@ import genre from './genre';
 import vinylCollection from './vinylCollection';
 import artistPagination from './artistPagination';
 import artistQuery from './artistQuery';
+import post from './post';
 
 export default combineReducers({
     alert,
@@ -14,5 +15,6 @@ export default combineReducers({
     profile,
     vinylCollection,
     artistPagination,
-    artistQuery
+    artistQuery,
+    post
 });

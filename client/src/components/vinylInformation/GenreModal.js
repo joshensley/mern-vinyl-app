@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
-import AlertComponent from '../layout/AlertComponent';
 import { connect } from 'react-redux';
 import { addGenre } from '../../actions/genre';
 
@@ -27,7 +26,6 @@ const GenreModal = ({ addGenre }) => {
         <Button color="info" onClick={toggle}>Add Genre</Button>
         <Modal isOpen={modal} toggle={toggle}>
           <ModalHeader toggle={toggle}>Add Genre</ModalHeader>
-          <AlertComponent />
           <ModalBody>
             <form onSubmit={e => {
               e.preventDefault();

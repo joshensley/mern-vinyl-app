@@ -4,15 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
 import { clearVinylCollection } from '../../actions/vinylCollection';
-
-import GenreModal from  '../vinylInformation/GenreModal';
-import GenreDeleteModal from '../vinylInformation/GenreDeleteModal';
-import ArtistModal from '../vinylInformation/ArtistModal';
-import ArtistDeleteModal from '../vinylInformation/ArtistDeleteModal';
-import AlbumModal from '../vinylInformation/AlbumModal';
-import AlbumDeleteModal from '../vinylInformation/AlbumDeleteModal';
-import SongModal from '../vinylInformation/SongModal';
-import SongDeleteModal from '../vinylInformation/SongDeleteModal';
+import DashboardActions from './DashboardActions';
 
 import { 
     Container,
@@ -39,7 +31,7 @@ const Dashboard = ({
        <Container>
            <Jumbotron>
                <Row>
-                   <Col>
+                   <Col style={{textAlign:"center"}}>
 
                    {
                         loading && profile === null ? 
@@ -51,8 +43,10 @@ const Dashboard = ({
                     }
 
                     {
-                        profile !== null ? 
-                        <Fragment>has</Fragment> : 
+                        !loading && profile !== null ? 
+                        <Fragment>
+                            <DashboardActions />
+                        </Fragment> : 
                         <Fragment>
                             <p>You have not yet setup a profile, please add some info</p>
                             <Link to="create-profile">
@@ -64,18 +58,6 @@ const Dashboard = ({
                     }
                    </Col>
                </Row>
-
-               <GenreModal />
-               <GenreDeleteModal />
-               <br></br>
-               <ArtistModal />
-               <ArtistDeleteModal />
-               <br></br>
-               <AlbumModal />
-               <AlbumDeleteModal />
-               <br></br>
-               <SongModal />
-               <SongDeleteModal />
            
            </Jumbotron>
         </Container>

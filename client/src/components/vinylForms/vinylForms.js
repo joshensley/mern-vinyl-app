@@ -16,7 +16,6 @@ import {
     CardTitle, 
     CardText
 } from 'reactstrap';
-// import { clearGenres } from '../../actions/genre';
 import { clearVinylCollection } from '../../actions/vinylCollection';
 
 import GenreModal from '../vinylInformation/GenreModal';
@@ -34,7 +33,6 @@ const VinylForms = ({
 }) => {
 
     useEffect(() => {
-        // clearGenres();
         clearVinylCollection();
     }, [ clearVinylCollection, clearGenres])
 
@@ -47,7 +45,7 @@ const VinylForms = ({
         <Container>
             <Jumbotron>
                 <Nav tabs>
-                    <NavItem>
+                    <NavItem style={{cursor:"pointer"}}>
                         <NavLink
                             className={classnames({ active: activeTab === '1' })}
                             onClick={() => { toggle('1'); }}
@@ -55,7 +53,7 @@ const VinylForms = ({
                             Genre
                         </NavLink>
                     </NavItem>
-                    <NavItem>
+                    <NavItem style={{cursor:"pointer"}}>
                         <NavLink
                             className={classnames({ active: activeTab === '2' })}
                             onClick={() => { toggle('2'); }}
@@ -63,7 +61,7 @@ const VinylForms = ({
                             Artist
                         </NavLink>
                     </NavItem>
-                    <NavItem>
+                    <NavItem style={{cursor:"pointer"}}>
                         <NavLink
                             className={classnames({ active: activeTab === '3' })}
                             onClick={() => { toggle('3'); }}
@@ -71,7 +69,7 @@ const VinylForms = ({
                             Album
                         </NavLink>
                     </NavItem>
-                    <NavItem>
+                    <NavItem style={{cursor:"pointer"}}> 
                         <NavLink
                             className={classnames({ active: activeTab === '4' })}
                             onClick={() => { toggle('4'); }}

@@ -17,10 +17,20 @@ import {
     DropdownItem
   } from 'reactstrap';
 
-const NavbarTop = ({ auth: { isAuthenticated, loading }, logout }) => {
-    
+const NavbarTop = ({ 
+    profile,
+    auth: { isAuthenticated, loading }, 
+    logout 
+}) => {
+
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
+
+    let userId = ""
+    if(profile.profile !== null) {
+        userId = profile.profile.user._id;
+    }
+    
 
     const authLinks = (
         <Fragment>
@@ -30,15 +40,34 @@ const NavbarTop = ({ auth: { isAuthenticated, loading }, logout }) => {
                 </NavLink>
             </NavItem>
             <NavItem>
-                <NavLink to="/forms" tag={Link}>
-                    Forms
-                </NavLink>
-            </NavItem>
-            <NavItem>
                 <NavLink tag={Link} to="/users">
                     Users  
                 </NavLink>
             </NavItem>
+            <NavItem>
+                <NavLink to={`/posts/${userId}`} tag={Link}>
+                    My Posts
+                </NavLink>
+            </NavItem>
+            <NavItem>
+                <NavLink to="/forms" tag={Link}>
+                    Forms
+                </NavLink>
+            </NavItem>
+            <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                    Settings
+                </DropdownToggle>
+                <DropdownMenu right>
+                    <DropdownItem to="/avatar" tag={Link}>
+                        Edit User Avatar
+                    </DropdownItem>
+                    <DropdownItem to="/edit-profile" tag={Link}>
+                        Edit User Information
+                    </DropdownItem>
+                </DropdownMenu>
+            </UncontrolledDropdown>
+
             <NavItem>
                 <NavLink onClick={logout} to="#!" tag={Link}>
                     <svg className="bi bi-arrow-bar-right" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -73,30 +102,11 @@ const NavbarTop = ({ auth: { isAuthenticated, loading }, logout }) => {
 
     return (
             <Navbar color="dark" dark expand="md">
-                <NavbarBrand href="/">reactstrap</NavbarBrand>
+                <NavbarBrand>Vinylify</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
-
-                        { !loading && (<Fragment> {isAuthenticated ? authLinks : guestLinks} </Fragment>) }
-                        
-
-                        <UncontrolledDropdown nav inNavbar>
-                            <DropdownToggle nav caret>
-                                Settings
-                            </DropdownToggle>
-                            <DropdownMenu right>
-                            <DropdownItem to="/avatar" tag={Link}>
-                                Edit User Avatar
-                            </DropdownItem>
-                            <DropdownItem>
-                                Edit User Information
-                            </DropdownItem>
-                            <DropdownItem divider />
-                            
-                        </DropdownMenu>
-                        </UncontrolledDropdown>
-                        
+                        { !loading && (<Fragment> {isAuthenticated ? authLinks : guestLinks} </Fragment>) }    
                     </Nav>
                 </Collapse>
             </Navbar>
@@ -106,11 +116,13 @@ const NavbarTop = ({ auth: { isAuthenticated, loading }, logout }) => {
 
 NavbarTop.propTypes = {
     logout: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired,
+    user: PropTypes.object
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth
+    auth: state.auth,
+    profile: state.profile
 })
 
 const mapDispatchToProps = {

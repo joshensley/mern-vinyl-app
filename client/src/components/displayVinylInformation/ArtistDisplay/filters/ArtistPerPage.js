@@ -24,8 +24,8 @@ const ArtistPerPage = ({ updateArtistPerPage }) => {
         <Fragment>
             <FormGroup>
                 <Row>
-                    <Col>
-                        <Label>Per Page:</Label>
+                    <Col style={{textAlign:"center"}}>
+                        <Label style={{color:"black"}}>Per Page</Label>
                     </Col>
                     <Col>
                     <Input 

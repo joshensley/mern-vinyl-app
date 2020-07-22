@@ -23,7 +23,7 @@ const Landing = ({ isAuthenticated }) => {
                     <Row>
                         <Col sm="12" md={{ size: 6, offset: 3 }} >
                             <h1 style={{textAlign: "center"}}>
-                                Heading
+                                Vinylify
                             </h1>
                         </Col>
                     </Row>
@@ -31,7 +31,7 @@ const Landing = ({ isAuthenticated }) => {
                     <Row className="mt-3">
                         <Col sm="12" md={{ size: 6, offset: 3 }} >
                             <h4 style={{textAlign: "center"}}>
-                               Sub-heading
+                               Catalog Your Music
                             </h4>
                         </Col>
                     </Row>

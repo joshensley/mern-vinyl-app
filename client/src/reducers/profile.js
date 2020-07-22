@@ -4,12 +4,19 @@ import {
     GET_ONE_USER_PROFILE,
     EDIT_USER_AVATAR,
     PROFILE_ERROR, 
-    CLEAR_PROFILE 
+    CLEAR_PROFILE,
+    UPDATE_PROFILE_CURRENT_PAGE,
+    RESET_PROFILE_PAGE,
+    SEARCH_PROFILE,
+    RESET_SEARCH_PROFILE
 } from "../actions/types";
 
 const initialState = {
     profile: null,
     profiles: [],
+    profilesCurrentPage: 1,
+    profilesPerPage: 9,
+    profilesSearch: "",
     oneProfile: null,
     loading: true,
     error: {}
@@ -49,6 +56,23 @@ export default function(state = initialState, action) {
                 ...state,
                 profile: null,
                 loading: false
+            }
+        case UPDATE_PROFILE_CURRENT_PAGE:
+        case RESET_PROFILE_PAGE:
+            return {
+                ...state,
+                profilesCurrentPage: payload
+            }
+        case SEARCH_PROFILE:
+            return {
+                ...state,
+                profilesSearch: payload
+            }
+        case RESET_SEARCH_PROFILE:
+            return {
+                ...state,
+                profilesSearch: "",
+                profilesCurrentPage: 1
             }
         default:
             return state;

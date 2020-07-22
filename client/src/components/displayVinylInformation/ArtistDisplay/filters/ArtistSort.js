@@ -25,8 +25,8 @@ const ArtistSort = ({
         <Fragment>
             <FormGroup>
                 <Row>
-                    <Col>
-                        <Label>Sort</Label>
+                    <Col style={{textAlign:"center"}}>
+                        <Label style={{color:"black"}}>Sort</Label>
                     </Col>
                     <Col>
                         <Input

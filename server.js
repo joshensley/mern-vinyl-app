@@ -1,11 +1,6 @@
 const express = require('express');
 const connectDB = require('./config/db');
-
-// // FOR EXAMPLE FILE UPLOAD
-// const path = require('path');
-// const crypto = require('crypto');
-// const multer = require('multer');
-// // FOR EXAMPLE FILE UPLOAD
+const path = require('path');
 
 const app = express();
 
@@ -22,6 +17,16 @@ app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
 app.use('/api/artist-genre', require('./routes/api/artist-genre'));
 app.use('/api/vinyl-collection', require('./routes/api/vinyl-collection'));
+
+// Serve static assets in production
+if(process.env.NODE_ENV === 'production') {
+    // Set static folder
+    app.use(express.static('client/build'));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    })
+}
 
 const PORT = process.env.PORT || 5000;
 

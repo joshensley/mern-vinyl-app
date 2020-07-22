@@ -1,6 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import AlertComponent from '../layout/AlertComponent';
 import { connect } from 'react-redux';
 
 import { getGenre } from '../../actions/genre';
@@ -38,7 +37,6 @@ const ArtistModal = ({ addArtist, getGenre, genre: { genre, loading } }) => {
         <Button color="info" onClick={toggle}>Add Artist</Button>
         <Modal isOpen={modal} toggle={toggle}>
           <ModalHeader toggle={toggle}>Add Artist</ModalHeader>
-          <AlertComponent />
           <ModalBody>
             <form onSubmit={e => {
               e.preventDefault();

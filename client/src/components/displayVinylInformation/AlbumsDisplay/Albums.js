@@ -67,7 +67,7 @@ const Albums = ({
                     !loading && oneArtist !== null ? oneArtist.albums.map((albumsMap, index) => {
                         return (
                             <Fragment key={index}>
-                                <Col md={{size: 4}}>
+                                <Col md={{size: 6}} lg={{size: 4}} xl={{size: 4}}>
                                     <AlbumsCard
                                         artistId={match.params.artistId}
                                         _id={_id}

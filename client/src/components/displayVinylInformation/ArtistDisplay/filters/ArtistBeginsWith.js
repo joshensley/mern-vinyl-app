@@ -39,8 +39,8 @@ const ArtistBeginsWith = ({ beginsWith, resetCurrentPage }) => {
         <Fragment>
             <FormGroup>
                 <Row>
-                    <Col>
-                        <Label>Begins With</Label>
+                    <Col style={{textAlign:"center"}}>
+                        <Label style={{color:"black"}}>Begins With</Label>
                     </Col>
                     <Col>
                         <Input

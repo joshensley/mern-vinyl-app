@@ -10,7 +10,11 @@ import Artist from './components/displayVinylInformation/ArtistDisplay/Artist';
 import Albums from './components/displayVinylInformation/AlbumsDisplay/Albums';
 import Songs from './components/displayVinylInformation/SongsDisplay/Songs';
 import vinylForms from './components/vinylForms/vinylForms';
+import CreateProfile from './components/profileForm/CreateProfile';
+import EditProfile from './components/profileForm/EditProfile';
 import EditUserAvatar from './components/editUserInformation/EditUserAvatar';
+import Posts from './components/posts/Posts';
+import Comments from './components/posts/Comments';
 import PrivateRoute from './components/routing/PrivateRoute';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
@@ -52,7 +56,11 @@ const App = () => {
             <Route exact path="/users" component={Users} />
             <PrivateRoute exact path="/avatar" component={EditUserAvatar} />
             <PrivateRoute exact path="/forms" component={vinylForms} />
+            <PrivateRoute exact path="/posts/:userId" component={Posts} />
+            <PrivateRoute exact path="/comments/:postId" component ={Comments} />
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            <PrivateRoute exact path="/create-profile" component={CreateProfile} />
+            <PrivateRoute exact path="/edit-profile" component={EditProfile} />
           </Switch>
         </Fragment>
       </Router>

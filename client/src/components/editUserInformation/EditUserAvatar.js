@@ -64,31 +64,42 @@ const EditUserAvatar = ({ profile, getCurrentProfile, editUserAvatar }) => {
                                     
                                 }}
                             />
-                            <hr/>
-                            <br/>
-                            
-                            <form 
-                                encType="multipart/form-data"
-                                onSubmit={onSubmit}
-                            >
-                                <FormGroup>
-                                    <Input 
-                                        color="info"
-                                        type="file" 
-                                        name="file" 
-                                        id="file"
-                                        onChange={onChange}
-                                        
-                                    >
-                                    </Input>   
-                                </FormGroup>
-                                <Button color="primary" type="submit" value="submit">
-                                    Submit
-                                </Button>
-                            </form>
                         </div>
                     </Col>
                 </Row> 
+                <hr/>
+                <br/>  
+                <Row>
+                    <Col 
+                        xs={{size:12}} 
+                        sm={{size:12}} 
+                        md={{offset:2, size:5}} 
+                        lg={{offset:4, size:4}} 
+                        xl={{offset:4, size:4}}
+                    >
+                        <form 
+                            encType="multipart/form-data"
+                            onSubmit={onSubmit}
+                        >
+                            <FormGroup>
+                            <div style={{textAlign: "center", margin: "auto"}}>
+                                <Input 
+                                    color="info"
+                                    type="file" 
+                                    name="file" 
+                                    id="file"
+                                    onChange={onChange}
+                                >
+                                </Input> 
+                            </div>  
+                            </FormGroup>
+                            <Button color="primary" type="submit" value="submit">
+                                Submit
+                            </Button>
+                           
+                        </form>
+                    </Col>
+                </Row>
             </Jumbotron>
         </Container>
     )

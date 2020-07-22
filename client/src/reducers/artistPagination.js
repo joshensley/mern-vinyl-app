@@ -15,6 +15,7 @@ export default function(state = initialState, action) {
 
     switch(type) {
         case UPDATE_ARTIST_CURRENT_PAGE:
+        case RESET_CURRENT_PAGE:
             return {
                 ...state,
                 artistCurrentPage: payload,
@@ -23,11 +24,6 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 artistPerPage: payload
-            }
-        case RESET_CURRENT_PAGE:
-            return {
-                ...state,
-                artistCurrentPage: payload
             }
         default:
             return state;
