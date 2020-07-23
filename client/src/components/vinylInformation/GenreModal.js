@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import AlertComponent from '../layout/AlertComponent';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addGenre } from '../../actions/genre';
@@ -33,6 +34,7 @@ const GenreModal = ({ addGenre }) => {
               setGenre('');
             }}> 
               <FormGroup>
+                <AlertComponent />
                 <Label>Genre</Label>
                 <Input 
                   type="text" 

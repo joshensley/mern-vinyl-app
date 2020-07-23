@@ -76,7 +76,7 @@ const Songs = ({
                             <Link to={{ pathname: `/artist/${oneArtist.user}` }}>Artists</Link>
                         </BreadcrumbItem>
                         <BreadcrumbItem active>
-                            <Link to={{ pathname: `/albums/${match.params.userId}/${match.params.artistId}` }}>Artists</Link>
+                            <Link to={{ pathname: `/albums/${match.params.userId}/${match.params.artistId}` }}>Albums</Link>
                         </BreadcrumbItem>
                         <BreadcrumbItem active>
                             Songs

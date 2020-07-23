@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
+import AlertComponent from '../layout/AlertComponent';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -16,7 +17,11 @@ import {
     Input
 } from 'reactstrap';
 
-const ArtistModal = ({ addArtist, getGenre, genre: { genre, loading } }) => {
+const ArtistModal = ({ 
+  addArtist, 
+  getGenre, 
+  genre: { genre, loading } 
+}) => {
   
     const [modal, setModal] = useState(false);
     const toggle = () => {
@@ -44,6 +49,7 @@ const ArtistModal = ({ addArtist, getGenre, genre: { genre, loading } }) => {
               setArtist('');
             }}> 
                 <FormGroup>
+                    <AlertComponent />
                     <Label>Genre</Label>
                     <Input type="select" name="select" onChange={e => setGenre(e.target.value)}>
                         <option hidden value="">Choose Genre (required)</option>
