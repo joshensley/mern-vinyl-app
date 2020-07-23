@@ -39,7 +39,7 @@ const ArtistModal = ({ addArtist, getGenre, genre: { genre, loading } }) => {
           <ModalHeader toggle={toggle}>Add Artist</ModalHeader>
           <ModalBody>
             <form onSubmit={e => {
-              e.preventDefault();
+              // e.preventDefault();
               addArtist({ artist: artistState, genre: genreState });
               setArtist('');
             }}> 
