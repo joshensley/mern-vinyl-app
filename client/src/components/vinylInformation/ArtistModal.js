@@ -39,13 +39,13 @@ const ArtistModal = ({ addArtist, getGenre, genre: { genre, loading } }) => {
           <ModalHeader toggle={toggle}>Add Artist</ModalHeader>
           <ModalBody>
             <form onSubmit={e => {
-              // e.preventDefault();
+              e.preventDefault();
               addArtist({ artist: artistState, genre: genreState });
               setArtist('');
             }}> 
                 <FormGroup>
                     <Label>Genre</Label>
-                    <Input type="select" name="select" onClick={e => setGenre(e.target.value)}>
+                    <Input type="select" name="select" onChange={e => setGenre(e.target.value)}>
                         <option hidden value="">Choose Genre (required)</option>
                         <option disabled="disabled" default>Choose Genre (required)</option>
                         {
