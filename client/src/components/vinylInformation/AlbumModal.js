@@ -82,7 +82,7 @@ const AlbumModal = ({
 
                     <FormGroup>
                         <Label>Select</Label>
-                        <Input type="select" name="artist" onClick={e => setArtist(e.target.value)}>
+                        <Input type="select" name="artist" onChange={e => setArtist(e.target.value)}>
                             <option hidden value="">Choose Artist (required)</option>
                             <option disabled="disabled" default>Choose Artist (required)</option>
                             {
